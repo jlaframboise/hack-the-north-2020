@@ -24,7 +24,8 @@ const HandsPage = () => {
 
     return (
         <Container>
-            <Typography>Hand tracking page
+            <Typography>
+                Hand tracking page
             </Typography>
         </Container>
 

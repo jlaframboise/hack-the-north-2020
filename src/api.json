@@ -1,71 +1,83 @@
 [
     {
+        "id": 0,
         "name": "Pencils",
         "price": 9.99,
         "description": "The best pencils in town!",
         "image": "https://cdn.pixabay.com/photo/2017/06/11/00/44/pencil-2391227__340.png"
     },
     {
+        "id": 1,
         "name": "Paper",
         "price": 19.99,
         "description": "Money doesn't grow on trees, but paper kind of does!",
         "image": "https://cdn.pixabay.com/photo/2016/08/23/12/37/files-1614223_960_720.jpg"
     },
     {
+        "id": 2,
         "name": "Laptop",
         "price": 200.00,
         "description": "The fastest laptop money can buy! Coffee not included.",
         "image": "https://cdn.pixabay.com/photo/2014/05/02/21/47/laptop-336369__340.jpg"
     },
     {
+        "id": 3,
         "name": "Printer",
         "price": 89.98,
         "description": "We will not help you fix your printer, but you can buy a new one here!",
         "image": "https://cdn.pixabay.com/photo/2013/07/13/12/19/printer-159612__340.png"
     },
     {
+        "id": 4,
         "name": "Binder",
         "price": 24.99,
         "description": "The famous 'get your stuff together' binder. ",
         "image": "https://cdn.pixabay.com/photo/2017/08/14/17/18/planner-2641215_1280.jpg"
     },
     {
+        "id": 5,
         "name": "Highligher Set",
         "price": 305.67,
         "description": "Highlighter set signed by Elon Musk himself.",
         "image": "https://cdn.pixabay.com/photo/2016/03/05/20/01/6-1238605__340.jpg"
     },
     {
+        "id": 6,
         "name": "Desk Cactus",
         "price": 39.99,
         "description": "Its like a pet, but its not soft, and will not distract you!",
         "image": "https://cdn.pixabay.com/photo/2019/04/03/17/46/poster-4100926_1280.jpg"
     },
     {
+        "id": 7,
         "name": "Coffee",
         "price": 4.95,
         "description": "Have a cup of our best intern-brewed coffee, shipped to your door!",
         "image": "https://cdn.pixabay.com/photo/2017/05/12/08/29/coffee-2306471_1280.jpg"
     },
     {
+        "id": 8,
         "name": "Teddy Bear",
         "price": 32.99,
         "description": "Your best friend while working from home!",
         "image": "https://cdn.pixabay.com/photo/2018/08/11/22/53/teddy-bear-3599680__340.jpg"
     },
     {
+        "id": 9,
         "name": "Fidget Spinner Pro 4 (TM)",
         "price": 29.99,
         "description": "Ever wanted to be the coolest kid in the back of the class everyone can't stop staring at? This is your chance!",
         "image": "https://cdn.pixabay.com/photo/2017/05/29/21/50/fidget-spinner-2355037_1280.jpg"
     },
     {
+        "id": 10,
         "name": "Paper Balls",
         "price": 19.99,
         "description": "Get the ammunition you need to annoy your best friends during class. Not responsible for any detention time.",
         "image": "https://cdn.pixabay.com/photo/2020/02/08/13/52/notes-4830155__340.jpg"
     },
     {
+        "id": 11,
         "name": "Waste-bin basketball",
         "price": 59.99,
         "description": "Throw out your trash like you throw out your co-workers on the basketball court! Its a slam dunk!",

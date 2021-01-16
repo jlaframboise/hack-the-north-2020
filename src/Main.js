@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import { connect } from 'react-redux'
+import { cartAdd } from './store/actions/cart';
+
 import logo from './logo.svg';
 import './App.css';
 import { AppBar, Toolbar, IconButton, MenuIcon } from '@material-ui/core';
@@ -15,14 +18,12 @@ import Grid from '@material-ui/core/Grid';
 
 import PRODUCTS from './api.json';
 
-const ProductPage = () => {
+const ProductPage = ({ cartAdd }) => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
     setProducts(PRODUCTS);
   }, []);
-
-  console.log(products);
 
   return (
     <>
@@ -31,7 +32,7 @@ const ProductPage = () => {
         {
           products.map((product) => (
             <Grid item md={4} style={{ paddingTop: 36 }}>
-              <ProductCard product={product} />
+              <ProductCard product={product} handleCart={cartAdd} />
             </Grid>
           ))
         }
@@ -41,7 +42,7 @@ const ProductPage = () => {
   );
 }
 
-export const ProductCard = ({product, cart = false}) => {
+export const ProductCard = ({product, cart = false, handleCart}) => {
   return (
     <Card>
       <CardActionArea>
@@ -64,19 +65,15 @@ export const ProductCard = ({product, cart = false}) => {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        {!cart &&
-          <Button size="small" color="primary">
-            Add to cart
-          </Button>
-        }
-        {cart &&
-          <Button size="small" color="primary">
-            Remove from cart
-          </Button>
-        }
+        <Button size="small" color="primary" onClick={() => handleCart(product)}>
+          {cart ? "Remove from cart" : "Add to cart"}
+        </Button>
+        
       </CardActions>
     </Card>
   )
 }
 
-export default ProductPage;
+const mapDispatchToProps = { cartAdd };
+  
+export default connect(null, mapDispatchToProps)(ProductPage);

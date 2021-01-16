@@ -2,32 +2,28 @@ import { CART_ADD, CART_REMOVE } from '../actions/actionTypes';
 import { updateObject } from '../utility';
 
 const initialState = {
-    cart: [
-        {
-            "name": "Paper",
-            "price": 19.99,
-            "description": "Money doesn't grow on trees, but paper kind of does!",
-            "image": "https://cdn.pixabay.com/photo/2016/08/23/12/37/files-1614223_960_720.jpg"
-        },
-        {
-            "name": "Laptop",
-            "price": 200.00,
-            "description": "The fastest laptop money can buy! Coffee not included.",
-            "image": "https://cdn.pixabay.com/photo/2014/05/02/21/47/laptop-336369__340.jpg"
-        },
-    ],
+    cart: [],
 }
 
 const cartAdd = (state, action) => {
-    console.log(action);
+    let cartCopy = [...state.cart];
+    
+    if(!cartCopy.find(o => o.id === action.data.id)) {
+        cartCopy.push(action.data);
+    };
     return updateObject(state, {
-        cart: [],
+        cart: cartCopy,
     });
 }
 
 const cartRemove = (state, action) => {
+    let cartCopy = [...state.cart];
+    
+    cartCopy = cartCopy.filter((o) => {
+        return o.id !== action.data.id;
+    });
     return updateObject(state, {
-        cart: [],
+        cart: cartCopy,
     });
 }
 
