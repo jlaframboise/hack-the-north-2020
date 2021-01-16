@@ -6,15 +6,18 @@
     "content_scripts": [
         {
             "matches": ["<all_urls>"],
-            "js": ["content.js", "handsfree/handsfree.js"]
+            "js": ["handsfree/handsfree.js", "content.js"]
         }
     ],
     "background": {
-        "page": "popup2.html"
+        "scripts": ["handsfree/handsfree.js", "initHandsFree.js"],
+        "persistent": true
     },
 
     "browser_action": {
         "default_popup": "popup.html"
-    }
+    },
+
+    "permissions": ["storage", "tabs", "activeTab"]
 
   }
