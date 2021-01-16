@@ -2,9 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux'
 import { cartAdd } from './store/actions/cart';
 
-import logo from './logo.svg';
 import './App.css';
-import { AppBar, Toolbar, IconButton, MenuIcon } from '@material-ui/core';
 import Container from '@material-ui/core/Container';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
