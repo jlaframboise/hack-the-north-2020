@@ -5,6 +5,8 @@ import { AppBar, Toolbar } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import Badge from '@material-ui/core/Badge';
+import Fab from '@material-ui/core/Fab';
+import MicIcon from '@material-ui/icons/Mic';
 
 
 const Layout = ({ children, cartItems }) => {
@@ -15,13 +17,22 @@ const Layout = ({ children, cartItems }) => {
                     <Typography variant="h6">
                         Sam's School Supplies
                     </Typography>
-                    <Button component={Link} to="/" color="inherit">Home</Button>
-                    <Badge badgeContent={cartItems} color="secondary">
-                        <Button component={Link} to="/cart" color="inherit">Cart</Button>
-                    </Badge>
+                    <div style={{marginLeft: "auto"}}>
+                        <Button component={Link} to="/" color="inherit">Home</Button>
+                        <Badge badgeContent={cartItems} color="secondary">
+                            <Button component={Link} to="/cart" color="inherit">Cart</Button>
+                        </Badge>
+                    </div>
                 </Toolbar>
             </AppBar>
             {children}
+            <Fab color="primary" style={{
+                position: "fixed",
+                bottom: 36,
+                right: 36,
+            }}>
+                <MicIcon />
+            </Fab>
         </>
     );
 }

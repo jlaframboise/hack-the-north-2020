@@ -29,7 +29,7 @@ const ProductPage = ({ cartAdd }) => {
         <Grid container spacing={3}>
         {
           products.map((product) => (
-            <Grid item md={4} style={{ paddingTop: 36 }}>
+            <Grid item md={4} key={product.id} style={{ paddingTop: 36 }}>
               <ProductCard product={product} handleCart={cartAdd} />
             </Grid>
           ))

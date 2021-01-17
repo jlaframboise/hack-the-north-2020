@@ -1,0 +1,6 @@
+A first draft of a basic navigation system:
+- position mouse over screen by positioning hand over webcam frame
+    - choose a part of hand, or use average of all 21 points
+- pinch and release to click
+    - or a different finger pinch?
+- pinch and drag to scroll
