@@ -1,8 +1,10 @@
 # HoverFlow Navigation
+## By Brian Arthur and Jacob Laframboise
+## At Hack The North 2020 ++
 A method of human computer interaction (HCI) invovling a combination of gesture based navigation and
 voice commands to allow the user to explore an e-commerce site in an intuitive way. 
 
-![HoverFlow Navigation in action!](/img/Screenshot%202021-01-17%20034321.png)
+![HoverFlow Navigation in action!](./img/img4.png)
 
 
 ## Goal of this work
@@ -40,11 +42,11 @@ Creates a Speech Recognition stream to identify voice commands
 
 ## Gallery
 
-![Products Page](/img/Screenshot%202021-01-17%20034035.png)
+![Products Page](./img/img1.png)
 
-![A Shopping Cart](/img/Screenshot%202021-01-17%20034125.png)
+![A Shopping Cart](./img/img2.png)
 
-![Handsfree Js Detection](/img/Screenshot%202021-01-17%20034215.png)
+![Handsfree Js Detection](./img/img3.png)
 
 
 ## Development Notes
