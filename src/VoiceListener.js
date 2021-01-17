@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+import { useHistory } from "react-router-dom";
 
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
-import './App.css';
 import Container from '@material-ui/core/Container';
 
 const VoiceListener = ({ listening }) => {    
+    const history = useHistory();
     // this will run if state is updated
     useEffect(() => {
         if(listening) {
@@ -19,11 +20,25 @@ const VoiceListener = ({ listening }) => {
         {
             command: '*activate*',
             callback: () => {
-                console.log("I heard you click!");
+                console.log("CLICK");
                 const pointer = document.getElementById("pointer");
                 const {x, y} = pointer.getBoundingClientRect();
-                console.log(document.elementFromPoint(x, y));
                 document.elementFromPoint(x, y).click();
+            },
+        },
+        {
+            command: '*go to cart*',
+            callback: () => {
+                console.log("I heard you want to go to cart!");
+                history.push("/cart");
+                
+            },
+        },
+        {
+            command: '*go to home*',
+            callback: () => {
+                console.log("I heard you want to go to home!");
+                history.push("/")
                 
             },
         }

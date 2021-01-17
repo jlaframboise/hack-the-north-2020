@@ -51,3 +51,24 @@
   background: red;
   position: fixed;
 }
+
+.banner-cart-list {
+  position: fixed;
+  top: 90px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  z-index: 100;
+}
+
+.banner-cart-item {
+  max-width: 600px;
+  width: 100%;
+  margin-bottom: 8px;
+  background: #b2b2dd !important;
+  border: solid 1px #3f51b5;
+  div {
+    padding: 10px 30px;
+  }
+}

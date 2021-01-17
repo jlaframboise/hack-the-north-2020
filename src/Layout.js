@@ -9,12 +9,20 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import Badge from '@material-ui/core/Badge';
 import Fab from '@material-ui/core/Fab';
+import Paper from '@material-ui/core/Paper';
 import MicIcon from '@material-ui/icons/Mic';
 
-const Layout = ({ children, cartItems, toggleListening }) => {
+const Layout = ({ children, cartItems, bannerCart, listening, toggleListening }) => {
     return (
         <>
-            <AppBar position='static'>
+            <div className="banner-cart-list">
+                {bannerCart.map(banner => (
+                    <Paper className="banner-cart-item">
+                        <div>Added {banner.name} to cart.</div>
+                    </Paper>
+                ))}
+            </div>
+            <AppBar position='fixed'>
                 <Toolbar>
                     <Typography variant="h6">
                         Sam's School Supplies
@@ -27,27 +35,25 @@ const Layout = ({ children, cartItems, toggleListening }) => {
                     </div>
                 </Toolbar>
             </AppBar>
+            <Toolbar />
             {children}
-            <Fab 
-                color="primary" 
-                style={{
-                    position: "fixed",
-                    bottom: 36,
-                    right: 36,
-                }}
-                onClick={toggleListening}
-            >
-                <MicIcon />
-            </Fab>
+            <div style={{ position: "fixed", bottom: 36, right: 36, display: "flex", flexDirection: "column", alignItems: "flex-end"}}>
+                {listening && <Fab style={{ marginBottom: 24 }} variant="extended" onClick={() => alert("Use hands and voice to control shop.")}>Active</Fab> }
+                <Fab color="primary" onClick={toggleListening}>
+                    <MicIcon />
+                </Fab>
+            </div>
             <Cursor />
             <VoiceListener />
         </>
     );
 }
 
-const mapStateToProps = ({cart}) => {
+const mapStateToProps = ({listening, cart, bannerCart}) => {
     return {
         cartItems: cart.length,
+        listening,
+        bannerCart,
     }
 }
 
