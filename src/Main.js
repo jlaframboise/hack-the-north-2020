@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux'
 import { cartAdd } from './store/actions/cart';
-
 import './App.css';
 import Container from '@material-ui/core/Container';
 import Card from '@material-ui/core/Card';

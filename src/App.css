@@ -43,3 +43,11 @@
   bottom: 10px;
   width: 300px;
 }
+
+#pointer {
+  width: 10px;
+  height: 10px;
+  border-radius: 20px;
+  background: red;
+  position: fixed;
+}

@@ -1,8 +1,9 @@
-import { CART_ADD, CART_REMOVE } from '../actions/actionTypes';
+import { CART_ADD, CART_REMOVE, TOGGLE_LISTENING } from '../actions/actionTypes';
 import { updateObject } from '../utility';
 
 const initialState = {
     cart: [],
+    listening: false,
 }
 
 const cartAdd = (state, action) => {
@@ -27,12 +28,21 @@ const cartRemove = (state, action) => {
     });
 }
 
+const toggleListening = (state) => {
+    let current = state.listening;
+    return updateObject(state, {
+        listening: !current,
+    });
+}
+
 const reducer = (state = initialState, action) => {
     switch (action.type) {
         case CART_ADD:
             return cartAdd(state, action);
         case CART_REMOVE:
             return cartRemove(state, action);
+        case TOGGLE_LISTENING:
+            return toggleListening(state);
         default:
             return state;
     }

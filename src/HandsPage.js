@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { ProductCard } from './Main.js'
 // import { useMousePosition } from "./useMousePosition"
 
+import { arrayMean, getHandCenter, camRatioToScreenPixels } from './util_functions'
+
 import { AppBar, Toolbar, IconButton, MenuIcon } from '@material-ui/core';
 import Container from '@material-ui/core/Container';
 import Card from '@material-ui/core/Card';
@@ -21,43 +23,6 @@ import Grid from '@material-ui/core/Grid';
 // handsfree.enablePlugins('browsing')
 // handsfree.start()
 
-const arrayMean = (arr) => {
-    let sum = 0;
-    arr.forEach( o => sum += o );
-    return sum / arr.length;
-}
-
-// note, coords are from the top right
-const getHandCenter = (handData) => {
-    let left = handData.multiHandLandmarks[0];
-    let right = handData.multiHandLandmarks[1];
-
-    let left_x_avg, left_y_avg;
-    if (left){
-        left_x_avg = arrayMean(left.map( (o) => o.x ));
-        left_y_avg = arrayMean(left.map( (o) => o.y ));
-    } else {
-        left_x_avg = null;
-        left_y_avg = null;
-    }
-    let right_x_avg, right_y_avg;
-    if (right){
-        right_x_avg = arrayMean(right.map( (o) => o.x )); 
-        right_y_avg = arrayMean(right.map( (o) => o.y )); 
-    } else {
-        right_x_avg = null;
-        right_y_avg = null;
-    }
-
-    return [[left_x_avg, left_y_avg], [right_x_avg, right_y_avg]]
-}
-
-const camRatioToScreenPixels = (x, y) => {
-    let xNew = 1.2*window.innerWidth - x * window.innerWidth*1.2;
-    let yNew = 1.3*window.innerHeight * y   - 100;
-
-    return [xNew, yNew];
-}
 
 
 const HandsPage = () => {
@@ -68,10 +33,10 @@ const HandsPage = () => {
         console.log(handsfree);
 
         // handsfree.enablePlugins('browsing')
-        handsfree.start();
+        // handsfree.start();
 
         handsfree.plugin.pinchScroll.enable();
-        handsfree.plugin.pinchScroll.config.speed = 1;
+        handsfree.plugin.pinchScroll.config.speed = 2;
         
         let lastPoint = 0;
         handsfree.use('logger', (data) => {
@@ -110,12 +75,14 @@ const HandsPage = () => {
 
     useEffect(() => {
         window.addEventListener("onkeydown", e => {
+            console.log(e);
             if (e.isComposing || e.keyCode === 229) {
                 return;
             }
             const pointer = document.getElementById("pointer");
             const {x, y} = pointer.getBoundingClientRect();
             console.log("CLICK");
+            console.log(document.elementFromPoint(x, y));
             document.elementFromPoint(x, y).click();
         })
     });
@@ -128,7 +95,6 @@ const HandsPage = () => {
                     Hand tracking page
                 </Typography>
             </Button>
-            <div id="pointer" style={{width: 10, height: 10, borderRadius: 20, background: "red", position: "fixed", top: position.top, left: position.left}}></div>
             <p style={{marginTop: 100}}>Hello world</p>
             <p style={{marginTop: 100}}>Hello world</p>
             <p style={{marginTop: 100}}>Hello world</p>

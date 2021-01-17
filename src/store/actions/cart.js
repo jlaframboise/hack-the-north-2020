@@ -1,4 +1,4 @@
-import { CART_ADD, CART_REMOVE } from '../actions/actionTypes';
+import { CART_ADD, CART_REMOVE, TOGGLE_LISTENING } from '../actions/actionTypes';
 
 export const cartAdd = data => {
 	return {
@@ -11,5 +11,11 @@ export const cartRemove = data => {
 	return {
 		type: CART_REMOVE,
 		data
+	};
+};
+
+export const toggleListening = () => {
+	return {
+		type: TOGGLE_LISTENING,
 	};
 };
