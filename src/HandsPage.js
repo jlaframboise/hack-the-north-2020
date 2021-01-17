@@ -54,7 +54,7 @@ const getHandCenter = (handData) => {
 
 const camRatioToScreenPixels = (x, y) => {
     let xNew = 1.2*window.innerWidth - x * window.innerWidth*1.2;
-    let yNew = 1.2*window.innerHeight * y;
+    let yNew = 1.3*window.innerHeight * y   - 100;
 
     return [xNew, yNew];
 }
@@ -88,10 +88,8 @@ const HandsPage = () => {
                 let [[left_x_avg, left_y_avg], [right_x_avg, right_y_avg]] = getHandCenter(data.hands);
 
 
-                console.log(left_x_avg);
 
 
-                const pointer = document.getElementById("pointer");
                 // console.log(pointer);
                 
                 if (left_x_avg && left_y_avg) {
@@ -100,8 +98,6 @@ const HandsPage = () => {
                     let [x, y] = camRatioToScreenPixels(left_x_avg, left_y_avg);
                     setPosition({left: x, top: y});
                 }
-                
-          
             }
 
             
@@ -112,13 +108,26 @@ const HandsPage = () => {
         });
     }, []);
 
-    console.log(window.innerHeight);
+    useEffect(() => {
+        window.addEventListener("onkeydown", e => {
+            if (e.isComposing || e.keyCode === 229) {
+                return;
+            }
+            const pointer = document.getElementById("pointer");
+            const {x, y} = pointer.getBoundingClientRect();
+            console.log("CLICK");
+            document.elementFromPoint(x, y).click();
+        })
+    });
+
 
     return (
         <Container>
-            <Typography variant="h1">
-                Hand tracking page
-            </Typography>
+            <Button onClick={() => alert("CLICKED!")}>
+                <Typography variant="h1">
+                    Hand tracking page
+                </Typography>
+            </Button>
             <div id="pointer" style={{width: 10, height: 10, borderRadius: 20, background: "red", position: "fixed", top: position.top, left: position.left}}></div>
             <p style={{marginTop: 100}}>Hello world</p>
             <p style={{marginTop: 100}}>Hello world</p>
